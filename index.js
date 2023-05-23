@@ -1,1 +1,42 @@
-console.log("My code is running");
+let submit = document.querySelector("#submit");
+let input = document.querySelector(".text");
+let Checkbox = document.querySelector(".strike");
+let toDoList = [];
+let newListItem = document.createElement("li");
+let listContainer = document.querySelector("ul");
+
+const addToDo = () => {
+
+let add = input.value;
+
+if(toDoList.indexOf(add) === -1){
+  toDoList.push(add);
+  toDoList.forEach((element) => {
+    newListItem.innerHTML = `
+    <li>${toDoList[element]}</li>`;
+    listContainer.appendChild(newListItem);
+    });
+  }
+  console.log(toDoList);
+  /*toDoList.push();
+  return toDoList;
+  newListItem.innerHTML = `
+  <li>${toDoList[toDoList.length - 1]}</li>
+  <input type="checkbox" class="strike" value="done">Done`;
+  listContainer.appendChild(newListItem);*/
+}
+
+const strikethrough = () => {
+for(let index=0; index < addToDo.length; index++){
+  if(document.querySelectorAll("li")[index].children[0].checked === true){
+    document.querySelectorAll("li")[index].style.textDecoration = "line-through";
+  } else {
+    document.querySelectorAll("li")[index].style.textDecoration = "";
+  }
+}
+
+}
+
+submit.addEventListener("click", addToDo);
+Checkbox.addEventListener("click", strikethrough);
+console.log(toDoList);

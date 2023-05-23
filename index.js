@@ -3,7 +3,9 @@ let input = document.querySelector(".text");
 let Checkbox = document.querySelector(".strike");
 let toDoList = [];
 let newListItem = document.createElement("li");
+let newBox = document.createElement("input");
 let listContainer = document.querySelector("ul");
+let boxContainer = document.querySelectorAll("li");
 
 const addToDo = () => {
 
@@ -11,13 +13,16 @@ let add = input.value;
 
 if(toDoList.indexOf(add) === -1){
   toDoList.push(add);
-  toDoList.forEach((element) => {
-    newListItem.innerHTML = `
-    <li>${toDoList[element]}</li>`;
-    listContainer.appendChild(newListItem);
-    });
   }
-  console.log(toDoList);
+toDoList.forEach((element) => { //Prolly change to a for loop to see if it helps
+  newListItem.innerHTML = `
+  <li>${element}</li>`;
+
+  listContainer.appendChild(newListItem);
+  newBox.innerHTML = `<input type="checkbox" class="strike" value="done>Completed?`;
+  boxContainer.appendChild(newBox);
+    });
+console.log(toDoList);
   /*toDoList.push();
   return toDoList;
   newListItem.innerHTML = `
